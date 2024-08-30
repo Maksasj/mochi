@@ -18,12 +18,21 @@ namespace Mochi.Service.Repository
 
             var saveResult = await _context.SaveChangesAsync();
 
-            return !(saveResult == 1);
+            return saveResult == 1;
         }
 
         public IEnumerable<LogMessageItem> GetLogs()
         {
             return _context.Logs;
+        }
+
+        public async Task<bool> DeleteLogsAsync(IEnumerable<LogMessageItem> logs)
+        {
+            _context.Logs.RemoveRange(logs);
+
+            var saveResult = await _context.SaveChangesAsync();
+
+            return saveResult != 0;
         }
     }
 }

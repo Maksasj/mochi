@@ -30,5 +30,10 @@ namespace Mochi.Service.Service
         {
             return _logRepository.GetLogs();
         }
+
+        public async Task<bool> ClearLogsAsync()
+        {
+            return  await _logRepository.DeleteLogsAsync(GetLogs());
+        }
     }
 }

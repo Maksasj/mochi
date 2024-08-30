@@ -7,5 +7,7 @@ namespace Mochi.Service.Repository
         Task<bool> AddLogAsync(LogMessageItem log);
 
         IEnumerable<LogMessageItem> GetLogs();
+
+        Task<bool> DeleteLogsAsync(IEnumerable<LogMessageItem> logs);
     }
 }

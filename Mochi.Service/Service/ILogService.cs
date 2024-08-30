@@ -8,5 +8,7 @@ namespace Mochi.Service.Service
         Task<bool> LogMessage(LogMessageModel model);
 
         IEnumerable<LogMessageItem> GetLogs();
+
+        Task<bool> ClearLogsAsync();
     }
 }
