@@ -8,7 +8,7 @@ namespace Mochi.Service.Models
         [Required]
         public Guid Id { get; set; }
 
-        public LogLevel LogLevel { get; set; }
+        public LogLevel MessageLogLevel { get; set; }
 
         public string SourceName { get; set; }
 
