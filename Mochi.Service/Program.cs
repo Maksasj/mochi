@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Mochi.Service.Data;
+using Mochi.Service.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<MochiDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddTransient<ILogRepository, LogRepository>();
 
 var app = builder.Build();
 
