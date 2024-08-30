@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Mochi.Service.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -11,6 +14,9 @@ builder.Services.AddCors(options =>
                 .AllowAnyMethod();
         });
 });
+
+builder.Services.AddDbContext<MochiDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -26,5 +32,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllers();
+
+//
 
 app.Run();

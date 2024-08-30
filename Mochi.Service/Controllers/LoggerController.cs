@@ -5,13 +5,11 @@ using System.Diagnostics;
 namespace Mochi.Service.Controllers
 {
     [ApiController]
-    public class HomeController : Controller
+    public class LoggerController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public LoggerController()
         {
-            _logger = logger;
+
         }
 
         [HttpGet]
