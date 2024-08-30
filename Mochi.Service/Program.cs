@@ -15,15 +15,23 @@ builder.Services.AddCors(options =>
         });
 });
 
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 builder.Services.AddDbContext<MochiDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
 
 var app = builder.Build();
 
 app.UseCors("AllowAllOrigins");
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 app.UseHttpsRedirection();
 
@@ -32,7 +40,5 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllers();
-
-//
 
 app.Run();

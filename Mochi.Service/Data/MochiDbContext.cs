@@ -4,11 +4,11 @@ using Mochi.Service.Models;
 
 namespace Mochi.Service.Data
 {
-    public class LogDbContext : DbContext
+    public class MochiDbContext : DbContext
     {
         public DbSet<LogMessageItem> Logs { get; set; }
 
-        public LogDbContext(DbContextOptions<LogDbContext> options) : base(options)
+        public MochiDbContext(DbContextOptions<MochiDbContext> options) : base(options)
         {
 
         }
