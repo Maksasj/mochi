@@ -44,7 +44,14 @@ namespace Mochi.Service.Controllers
                 Messages = messages,
             };
         }
-        
+
+        [HttpGet]
+        [Route("GetLogsCount")]
+        public async Task<long> GetLogsCount()
+        {
+            return  _logService.GetLogs().LongCount();
+        }
+
         [HttpDelete]
         [Route("ClearLogs")]
         public async Task<IActionResult> ClearLogs()
