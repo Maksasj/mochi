@@ -28,7 +28,7 @@ namespace Mochi.Service.Service
 
         public IEnumerable<LogMessageItem> GetLogs()
         {
-            return _logRepository.GetLogs();
+            return _logRepository.GetLogs().Reverse();
         }
 
         public async Task<bool> ClearLogsAsync()
