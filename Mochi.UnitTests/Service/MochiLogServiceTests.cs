@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -22,23 +23,6 @@ public class MochiLogServiceTests
     {
        
     }
-
-    /*
-       public async Task<bool> LogMessage(LogMessageModel model)
-       {
-           return await _logRepository.AddLogAsync();
-       }
-
-       public IEnumerable<LogMessageItem> GetLogs()
-       {
-           return _logRepository.GetLogs().Reverse();
-       }
-
-       public async Task<bool> ClearLogsAsync()
-       {
-           return  await _logRepository.DeleteLogsAsync(GetLogs());
-       }
-     */
 
     [Fact]
     public async Task LogMessage_LogValidLogMessage_ReturnsTrue()
@@ -77,7 +61,9 @@ public class MochiLogServiceTests
         };
 
         var repositoryMock = new Mock<ILogRepository>();
-        repositoryMock.Setup(mock => mock.AddLogAsync(It.IsAny<LogMessageItem>())).Returns(Task.FromResult(true));
+        repositoryMock
+            .Setup(mock => mock.AddLogAsync(It.IsAny<LogMessageItem>()))
+            .Returns(Task.FromResult(true));
 
         var service = new MochiLogService(repositoryMock.Object);
 
@@ -87,5 +73,64 @@ public class MochiLogServiceTests
 
         // Assert
         repositoryMock.Verify(mock => mock.AddLogAsync(It.IsAny<LogMessageItem>()), Times.Exactly(1234));
+    }
+
+    [Fact]
+    public async Task GetLogs_RepositoryGetLogs_ExecutedOnce()
+    {
+        // Arrange
+        var repositoryMock = new Mock<ILogRepository>();
+        repositoryMock
+            .Setup(mock => mock.GetLogs())
+            .Returns(Enumerable.Empty<LogMessageItem>);
+
+        var service = new MochiLogService(repositoryMock.Object);
+
+        // Act
+        service.GetLogs();
+
+        // Assert
+        repositoryMock.Verify(mock => mock.GetLogs(), Times.Once);
+    }
+
+    [Fact]
+    public async Task ClearLogsAsync_RepositoryDeleteLogsAsync_ExecutedOnce()
+    {
+        // Arrange
+        var repositoryMock = new Mock<ILogRepository>();
+        repositoryMock
+            .Setup(mock => mock.DeleteLogsAsync(It.IsAny<IEnumerable<LogMessageItem>>()))
+            .Returns(Task.FromResult(true));
+
+        var service = new MochiLogService(repositoryMock.Object);
+
+        // Act
+        service.ClearLogsAsync();
+
+        // Assert
+        repositoryMock.Verify(mock => mock.DeleteLogsAsync(It.IsAny<IEnumerable<LogMessageItem>>()), Times.Once);
+    }
+
+    [Fact]
+    public async Task ClearLogsAsync_RepositoryGetLogsAsync_ExecutedOnce()
+    {
+        // Arrange
+        var repositoryMock = new Mock<ILogRepository>();
+        
+        repositoryMock
+            .Setup(mock => mock.DeleteLogsAsync(It.IsAny<IEnumerable<LogMessageItem>>()))
+            .Returns(Task.FromResult(true));
+        
+        repositoryMock
+            .Setup(mock => mock.GetLogs())
+            .Returns(Enumerable.Empty<LogMessageItem>);
+
+        var service = new MochiLogService(repositoryMock.Object);
+
+        // Act
+        service.ClearLogsAsync();
+
+        // Assert
+        repositoryMock.Verify(mock => mock.GetLogs(), Times.Once);
     }
 }
