@@ -7,6 +7,8 @@ Cool looking widgets
 ![GitHub Repo stars](https://img.shields.io/github/stars/Maksasj/mochi)
 ![GitHub License](https://img.shields.io/github/license/Maksasj/mochi)
 
+![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/Maksasj/58977bdd8994a6eaaa2345e9a70c33d6/raw/mochi-code-coverage.json)
+
 ## Features ✨
 *Todo*
 

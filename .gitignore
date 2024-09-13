@@ -4,3 +4,4 @@ obj
 *.db-shm
 *.db-wal
 mochi.db
+TestResults

@@ -31,7 +31,7 @@ jobs:
       id: create_coverage_badge
       with:
         label: Unit Test Coverage
-        color: brightgreen
+        color: blue
         path: Mochi.UnitTests/TestResults/coverage.opencover.xml
         gist-filename: mochi-code-coverage.json
         gist-id: 58977bdd8994a6eaaa2345e9a70c33d6
