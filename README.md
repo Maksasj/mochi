@@ -2,12 +2,13 @@
 
 ASP.NET Core based minimalistic logging microservice
 
-> **mochi** is a new Cscipt framework btw
+> **mochi** is a new cscipt framework btw
 
 Cool looking widgets 
-![GitHub Repo stars](https://img.shields.io/github/stars/Maksasj/mochi?style=flat)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/Maksasj/mochi/test.yml?logo=github&label=build)
 ![GitHub License](https://img.shields.io/github/license/Maksasj/mochi)
-![badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/Maksasj/58977bdd8994a6eaaa2345e9a70c33d6/raw/mochi-code-coverage.json)
+![Unit Test Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/Maksasj/58977bdd8994a6eaaa2345e9a70c33d6/raw/mochi-code-coverage.json)
+![GitHub Repo stars](https://img.shields.io/github/stars/Maksasj/mochi?style=flat)
 
 ## Features
 *Todo*
