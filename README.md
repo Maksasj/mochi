@@ -10,6 +10,13 @@ Cool looking widgets
 ![Unit Test Coverage](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/Maksasj/58977bdd8994a6eaaa2345e9a70c33d6/raw/mochi-code-coverage.json)
 ![GitHub Repo stars](https://img.shields.io/github/stars/Maksasj/mochi?style=flat)
 
+## Docker
+
+```bash
+docker build -t mochi .
+docker run -p 7417:8080 mochi
+```
+
 ## Features
 *Todo*
 
