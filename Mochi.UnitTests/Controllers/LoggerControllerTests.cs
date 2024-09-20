@@ -15,7 +15,7 @@ public class LoggerControllerTests
 
     }
 
-    [Fact]
+    [Test]
     public async Task Log_ServiceLogMessage_ExecutedOnce()
     {
         // Arrange
@@ -36,7 +36,7 @@ public class LoggerControllerTests
         serviceMock.Verify(mock => mock.LogMessage(It.IsAny<LogMessageModel> ()), Times.Once);
     }
 
-    [Fact]
+    [Test]
     public async Task GetLogs_ServiceGetLogs_ExecutedOnce()
     {
         // Arrange
@@ -51,7 +51,7 @@ public class LoggerControllerTests
         serviceMock.Verify(mock => mock.GetLogs(), Times.Once);
     }
 
-    [Fact]
+    [Test]
     public async Task ClearLogs_ServiceClearLogsAsync_ExecutedOnce()
     {
         // Arrange
@@ -66,7 +66,7 @@ public class LoggerControllerTests
         serviceMock.Verify(mock => mock.ClearLogsAsync(), Times.Once);
     }
 
-    [Fact]
+    [Test]
     public async Task GetLogsCount_ServiceGetLogs_ExecutedOnce()
     {
         // Arrange

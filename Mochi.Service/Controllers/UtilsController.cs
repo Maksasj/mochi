@@ -2,20 +2,21 @@
 
 namespace Mochi.Service.Controllers
 {
-    public class UtilsController : Controller
+    [ApiController]
+    public class UtilsController
     {
         [HttpGet]
         [Route("Ping")]
         public async Task<IActionResult> Ping()
         {
-            return Ok();
+            return new OkResult();
         }
 
         [HttpGet]
         [Route("Health")]
         public async Task<IActionResult> GetHealth()
         {
-            return Ok();
+            return new OkResult();
         }
     }
 }

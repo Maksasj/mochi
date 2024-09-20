@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 namespace Mochi.Service.Controllers
 {
     [ApiController]
-    public class LoggerController : Controller
+    public class LoggerController
     {
         private readonly ILogService _logService;
 
@@ -23,9 +23,9 @@ namespace Mochi.Service.Controllers
             var result = await _logService.LogMessage(message);
 
             if (result == false)
-                return BadRequest("Failed to log message");
+                return new BadRequestObjectResult("Failed to log message");
 
-            return Ok();
+            return new OkResult();
         }
 
         [HttpGet]
@@ -59,9 +59,9 @@ namespace Mochi.Service.Controllers
             var result = await _logService.ClearLogsAsync();
 
             if (result == false)
-                return BadRequest("Failed to clear logs");
+                return new BadRequestObjectResult("Failed to clear logs");
 
-            return Ok();
+            return new OkResult();
         }
     }
 }

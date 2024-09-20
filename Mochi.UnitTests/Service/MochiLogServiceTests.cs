@@ -24,7 +24,7 @@ public class MochiLogServiceTests
        
     }
 
-    [Fact]
+    [Test]
     public async Task LogMessage_LogValidLogMessage_ReturnsTrue()
     {
         // Arrange
@@ -48,7 +48,7 @@ public class MochiLogServiceTests
         repositoryMock.Verify(mock => mock.AddLogAsync(It.IsAny<LogMessageItem>()), Times.Once);
     }
 
-    [Fact]
+    [Test]
     public async Task LogMessage_LogManyValidLogMessage_ReturnsTrue()
     {
         // Arrange
@@ -75,7 +75,7 @@ public class MochiLogServiceTests
         repositoryMock.Verify(mock => mock.AddLogAsync(It.IsAny<LogMessageItem>()), Times.Exactly(1234));
     }
 
-    [Fact]
+    [Test]
     public async Task GetLogs_RepositoryGetLogs_ExecutedOnce()
     {
         // Arrange
@@ -93,7 +93,7 @@ public class MochiLogServiceTests
         repositoryMock.Verify(mock => mock.GetLogs(), Times.Once);
     }
 
-    [Fact]
+    [Test]
     public async Task ClearLogsAsync_RepositoryDeleteLogsAsync_ExecutedOnce()
     {
         // Arrange
@@ -111,7 +111,7 @@ public class MochiLogServiceTests
         repositoryMock.Verify(mock => mock.DeleteLogsAsync(It.IsAny<IEnumerable<LogMessageItem>>()), Times.Once);
     }
 
-    [Fact]
+    [Test]
     public async Task ClearLogsAsync_RepositoryGetLogsAsync_ExecutedOnce()
     {
         // Arrange
