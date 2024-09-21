@@ -35,11 +35,7 @@ docker run -p 7417:8080 mochi
 When it comes to contributing to the project, the two main things you can do to help out are reporting issues and submitting pull requests.
 
 If you have any questions, feel free to to submit [issue](https://github.com/Maksasj/mochi/issues) or message [author](https://github.com/Maksasj) on social medias.
-## Developing
 
-Please make sure you have the following prerequisites:
-  - A desktop platform with the [.NET 8.0 SDK](https://dotnet.microsoft.com/download) installed
-  - Version control tool [Git](https://git-scm.com/)
 ## License
 
 **mochi** is free and open source software. All code in this repository is licensed under
