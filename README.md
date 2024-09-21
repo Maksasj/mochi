@@ -1,6 +1,6 @@
 # 🍡 mochi
 
-**mochi** is a minimalistic logging microservice built with **ASP.NET Core**. Designed to handle logging needs across distributed services, Mochi provides a lightweight and efficient solution for tracking and managing log data in a microservices environment.
+**mochi** is a minimalistic logging microservice built with **ASP.NET Core**. Designed to handle logging needs across distributed services, **mochi** provides a lightweight and efficient solution for tracking and managing log data in a microservices environment.
 
 Cool looking widgets 
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/Maksasj/mochi/test.yml?logo=github&label=build)
