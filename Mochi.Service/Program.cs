@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Mochi.Service.Common.Extensions;
 using Mochi.Service.Data;
 using Mochi.Service.Repository;
 using Mochi.Service.Service;
@@ -21,8 +22,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// builder.Services.AddDbContext<MochiDbContext>(options =>
+//     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 builder.Services.AddDbContext<MochiDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddTransient<ILogRepository, LogRepository>();
 builder.Services.AddTransient<ILogService, MochiLogService>();
@@ -31,11 +35,12 @@ var app = builder.Build();
 
 app.UseCors("AllowAllOrigins");
 
-if (app.Environment.IsDevelopment())
-{
+// if (app.Environment.IsDevelopment())
+// {
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+    app.ApplyMigrations();
+// }
 
 // app.UseHttpsRedirection();
 
