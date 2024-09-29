@@ -1,9 +1,8 @@
-﻿
-
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Mochi.Service.Data;
 
 namespace Mochi.Service.Common.Extensions;
+
 public static class MigrationExtensions
 {
     public static void ApplyMigrations(this IApplicationBuilder app)
