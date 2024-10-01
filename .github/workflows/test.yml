@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ "master", "dev" ]
 
+defaults:
+  run:
+    working-directory: ./backend
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -32,7 +36,7 @@ jobs:
       with:
         label: Unit Test Coverage
         color: blue
-        path: Mochi.UnitTests/TestResults/coverage.opencover.xml
+        path: backend/Mochi.UnitTests/TestResults/coverage.opencover.xml
         gist-filename: mochi-code-coverage.json
         gist-id: 58977bdd8994a6eaaa2345e9a70c33d6
         gist-auth-token: ${{ secrets.GIST_AUTH_TOKEN }}       
